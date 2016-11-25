@@ -22,13 +22,13 @@ public class articulos extends javax.swing.JFrame {
     /**
      * Creates new form articulos
      */
-    public articulos()  throws SQLException {
+    public articulos() throws SQLException {
         initComponents();
         String url = "jdbc:mysql://localhost:3306/base_01";
         String user = "root";
         String pass = "";
         Connection connection = DriverManager.getConnection(url, user, pass);
-        
+
         Statement s = connection.createStatement();
         String query = "select * from articulos";
         r = s.executeQuery(query);
@@ -44,7 +44,6 @@ public class articulos extends javax.swing.JFrame {
         CONFIRMAR.setVisible(false);
         CANCELAR.setVisible(false);
     }
-        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -137,6 +136,11 @@ public class articulos extends javax.swing.JFrame {
         });
 
         jButton6.setText("EDITAR");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         CONFIRMAR.setText("CONFIRMAR");
         CONFIRMAR.addActionListener(new java.awt.event.ActionListener() {
@@ -229,8 +233,7 @@ public class articulos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
-                                .addComponent(jButton6)
-                                .addGap(18, 18, 18))
+                                .addComponent(jButton6))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -269,7 +272,7 @@ public class articulos extends javax.swing.JFrame {
             bfabricante.setText(r.getString("FABRICANTE"));
             bpeso.setText(r.getString("PESO"));
             bcategoria.setText(r.getString("CATEGORIA"));
-            bprecio_venta.setText(r.getString("PRECIO_VENTA")); 
+            bprecio_venta.setText(r.getString("PRECIO_VENTA"));
             bprecio_coste.setText(r.getString("PRECIO_COSTE"));
             bexistencias.setText(r.getString("EXISTENCIAS"));   // TODO add your handling code here:
         } catch (SQLException ex) {
@@ -285,7 +288,7 @@ public class articulos extends javax.swing.JFrame {
             bfabricante.setText(r.getString("FABRICANTE"));
             bpeso.setText(r.getString("PESO"));
             bcategoria.setText(r.getString("CATEGORIA"));
-            bprecio_venta.setText(r.getString("PRECIO_VENTA")); 
+            bprecio_venta.setText(r.getString("PRECIO_VENTA"));
             bprecio_coste.setText(r.getString("PRECIO_COSTE"));
             bexistencias.setText(r.getString("EXISTENCIAS"));   // TODO add your handling code here:
         } catch (SQLException ex) {
@@ -300,7 +303,7 @@ public class articulos extends javax.swing.JFrame {
             bfabricante.setText(r.getString("FABRICANTE"));
             bpeso.setText(r.getString("PESO"));
             bcategoria.setText(r.getString("CATEGORIA"));
-            bprecio_venta.setText(r.getString("PRECIO_VENTA")); 
+            bprecio_venta.setText(r.getString("PRECIO_VENTA"));
             bprecio_coste.setText(r.getString("PRECIO_COSTE"));
             bexistencias.setText(r.getString("EXISTENCIAS"));   // TODO add your handling code here:
         } catch (SQLException ex) {
@@ -309,13 +312,13 @@ public class articulos extends javax.swing.JFrame {
     }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         try {
-            r.last ();
+            r.last();
             bcodigoarticulo.setText(r.getString("COD_ARTICULO"));
             barticulo.setText(r.getString("ARTICULO"));
             bfabricante.setText(r.getString("FABRICANTE"));
             bpeso.setText(r.getString("PESO"));
             bcategoria.setText(r.getString("CATEGORIA"));
-            bprecio_venta.setText(r.getString("PRECIO_VENTA")); 
+            bprecio_venta.setText(r.getString("PRECIO_VENTA"));
             bprecio_coste.setText(r.getString("PRECIO_COSTE"));
             bexistencias.setText(r.getString("EXISTENCIAS"));   // TODO add your handling code here:
         } catch (SQLException ex) {
@@ -325,71 +328,71 @@ public class articulos extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         bcodigoarticulo.setEditable(true);
-            bcodigoarticulo.setText(" ");
-            barticulo.setText(" ");
-            bfabricante.setText(" ");
-            bpeso.setText(" ");
-            bcategoria.setText(" ");
-            bprecio_venta.setText(" ");
-            bprecio_coste.setText(" ");
-            bexistencias.setText(" ");           
-          
-            CONFIRMAR.setVisible(true);
-            CANCELAR.setVisible(true);
-            jButton1.setEnabled(false);
-            jButton2.setEnabled(false);
-            jButton3.setEnabled(false);
-            jButton4.setEnabled(false);
-            jButton6.setEnabled(false);
-            
-          // TODO add your handling code here:
+        bcodigoarticulo.setText(" ");
+        barticulo.setText(" ");
+        bfabricante.setText(" ");
+        bpeso.setText(" ");
+        bcategoria.setText(" ");
+        bprecio_venta.setText(" ");
+        bprecio_coste.setText(" ");
+        bexistencias.setText(" ");
+
+        CONFIRMAR.setVisible(true);
+        CANCELAR.setVisible(true);
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton6.setEnabled(false);
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void CANCELARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELARActionPerformed
-              try {
-                    r.first();
-                    bcodigoarticulo.setEditable(true);
-                    bcodigoarticulo.setText(r.getString("COD_ARTICULO"));
-                     barticulo.setText(r.getString("ARTICULO"));
-                     bfabricante.setText(r.getString("FABRICANTE"));
-                     bpeso.setText(r.getString("PESO"));
-                      bcategoria.setText(r.getString("CATEGORIA"));
-                     bprecio_venta.setText(r.getString("PRECIO_VENTA"));
-                     bprecio_coste.setText(r.getString("PRECIO_COSTE"));
-                     bexistencias.setText(r.getString("EXISTENCIAS"));                      
-                    CANCELAR.setVisible(false);
-                     CONFIRMAR.setVisible(false);
-                     jButton1.setEnabled(true);
-                    jButton2.setEnabled(true);
-                    jButton3.setEnabled(true);
-                    jButton4.setEnabled(true);
-                     jButton6.setEnabled(true);
-              }
-                 catch (SQLException ex)  {
-                         Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
-                         }            
-                        
-           // TODO add your handling code here:
+        try {
+            r.first();
+            bcodigoarticulo.setEditable(true);
+            bcodigoarticulo.setText(r.getString("COD_ARTICULO"));
+            barticulo.setText(r.getString("ARTICULO"));
+            bfabricante.setText(r.getString("FABRICANTE"));
+            bpeso.setText(r.getString("PESO"));
+            bcategoria.setText(r.getString("CATEGORIA"));
+            bprecio_venta.setText(r.getString("PRECIO_VENTA"));
+            bprecio_coste.setText(r.getString("PRECIO_COSTE"));
+            bexistencias.setText(r.getString("EXISTENCIAS"));
+            CANCELAR.setVisible(false);
+            CONFIRMAR.setVisible(false);
+            jButton1.setEnabled(true);
+            jButton2.setEnabled(true);
+            jButton3.setEnabled(true);
+            jButton4.setEnabled(true);
+            jButton6.setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_CANCELARActionPerformed
 
     private void CONFIRMARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CONFIRMARActionPerformed
-try{
+        try {
             String vbcodigoarticulo, vbarticulo, vbfabricante, vbpeso, vbcategoria, vbprecio_venta, vprecio_coste, vbexistencias;
-            vbcodigoarticulo=bcodigoarticulo.getText();
-            vbfabricante=bfabricante.getText();
-            vbpeso=bpeso.getText();
-            vbcategoria= bcategoria.getText();
-            vbprecio_venta=bprecio_venta.getText();
-            vprecio_coste=precio_coste.getText();
-            vbexistencias=bexistencias.getText();
-            String url="jdbc:mysql://localhost:3306/base_01";
-            String user="root";
-            String pass="";         Connection connection = DriverManager.getConnection(url, user, pass);
-            Statement s=connection.createStatement();
-            String query ="insert into cliente values('" + vbcodigoarticulo +"','"+ vbfabricante  +"','"+  vbpeso +"','"+  vbcategoria  +"','"+  vbprecio_venta  +"','"+ vprecio_coste  +"','"+  vbexistencias  +"')";
-            int resultado=s.executeUpdate(query);
+            vbcodigoarticulo = bcodigoarticulo.getText();
+            vbfabricante = bfabricante.getText();
+            vbpeso = bpeso.getText();
+            vbcategoria = bcategoria.getText();
+            vbprecio_venta = bprecio_venta.getText();
+            vprecio_coste = precio_coste.getText();
+            vbexistencias = bexistencias.getText();
+            String url = "jdbc:mysql://localhost:3306/base_01";
+            String user = "root";
+            String pass = "";
+            Connection connection = DriverManager.getConnection(url, user, pass);
+            Statement s = connection.createStatement();
+            String query = "insert into cliente values('" + vbcodigoarticulo + "','" + vbfabricante + "','" + vbpeso + "','" + vbcategoria + "','" + vbprecio_venta + "','" + vprecio_coste + "','" + vbexistencias + "')";
+            int resultado = s.executeUpdate(query);
             r.refreshRow();
-            
+
             CONFIRMAR.setVisible(false);
             CANCELAR.setVisible(false);
             jButton1.setEnabled(true);
@@ -397,13 +400,40 @@ try{
             jButton3.setEnabled(true);
             jButton4.setEnabled(true);
             jButton6.setEnabled(true);
-            
-        }   catch (SQLException ex) {
+
+        } catch (SQLException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-               // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_CONFIRMARActionPerformed
-    
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        try {
+
+            String vbcodigoarticulo, vbarticulo, vbfabricante, vbpeso, vbcategoria, vbprecio_venta, vprecio_coste, vbexistencias;
+            vbcodigoarticulo = bcodigoarticulo.getText();
+            vbarticulo = barticulo.getText();
+            vbfabricante = bfabricante.getText();
+            vbpeso = bpeso.getText();
+            vbcategoria = bcategoria.getText();
+            vbprecio_venta = bprecio_venta.getText();
+            vprecio_coste = precio_coste.getText();
+            vbexistencias = bexistencias.getText();
+
+            String url = "jdbc:mysql://localhost:3306/base_01";
+            String user = "root";
+            String pass = "";
+            Connection connection = DriverManager.getConnection(url, user, pass);
+            Statement s = connection.createStatement();
+            String query = "update articulos set EXISTENCIAS='" + vbexistencias + "', ARTICULO='" + vbarticulo + "', FABRICANTE='" + vbfabricante + "', PESO ='" + vbpeso + "'  , CATEGORIA='" + vbcategoria + "'  , PRECIO_VENTA='" + vbprecio_venta + "', PRECIO_COSTE ='" + vprecio_coste + "' WHERE COD_ARTICULO ='" + vbcodigoarticulo + "'";
+            int resultado = s.executeUpdate(query);
+            r.refreshRow();
+        } catch (SQLException ex) {
+            Logger.getLogger(articulos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -434,7 +464,7 @@ try{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            try {
+                try {
                     new articulos().setVisible(true);
                 } catch (SQLException ex) {
                     Logger.getLogger(articulos.class.getName()).log(Level.SEVERE, null, ex);
@@ -471,4 +501,3 @@ try{
     private javax.swing.JLabel precio_venta;
     // End of variables declaration//GEN-END:variables
 }
-

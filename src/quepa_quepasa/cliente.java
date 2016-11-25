@@ -19,16 +19,15 @@ import java.util.logging.Logger;
  */
 public class cliente extends javax.swing.JFrame {
 
-    static public ResultSet r; 
-    
-    
+    static public ResultSet r;
+
     public cliente() throws SQLException {
         initComponents();
         String url = "jdbc:mysql://localhost:3306/base_01";
         String user = "root";
         String pass = "";
         Connection connection = DriverManager.getConnection(url, user, pass);
-        
+
         Statement s = connection.createStatement();
         String query = "select * from clientes";
         r = s.executeQuery(query);
@@ -290,18 +289,18 @@ public class cliente extends javax.swing.JFrame {
         catch (SQLException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-                try {
-            if(r.previous()){
-            nif.setText(r.getString("NIF"));
-            nombre.setText(r.getString("NOMBRE"));
-            direccion.setText(r.getString("DIRECCION"));
-            poblacion.setText(r.getString("POBLACION"));
-            provincia.setText(r.getString("PROVINCIA"));
-            telefono.setText(r.getString("TELEFONO"));
+        try {
+            if (r.previous()) {
+                nif.setText(r.getString("NIF"));
+                nombre.setText(r.getString("NOMBRE"));
+                direccion.setText(r.getString("DIRECCION"));
+                poblacion.setText(r.getString("POBLACION"));
+                provincia.setText(r.getString("PROVINCIA"));
+                telefono.setText(r.getString("TELEFONO"));
             }// TODO add your handling code here:
         } catch (SQLException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -309,14 +308,14 @@ public class cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-                try {
-            if(r.next()){
-            nif.setText(r.getString("NIF"));
-            nombre.setText(r.getString("NOMBRE"));
-            direccion.setText(r.getString("DIRECCION"));
-            poblacion.setText(r.getString("POBLACION"));
-            provincia.setText(r.getString("PROVINCIA"));
-            telefono.setText(r.getString("TELEFONO"));
+        try {
+            if (r.next()) {
+                nif.setText(r.getString("NIF"));
+                nombre.setText(r.getString("NOMBRE"));
+                direccion.setText(r.getString("DIRECCION"));
+                poblacion.setText(r.getString("POBLACION"));
+                provincia.setText(r.getString("PROVINCIA"));
+                telefono.setText(r.getString("TELEFONO"));
             }// TODO add your handling code here:
         } catch (SQLException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -338,65 +337,63 @@ public class cliente extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         nif.setEditable(true);
-            nif.setText(" ");
-            nombre.setText(" ");
-            direccion.setText(" ");
-            poblacion.setText(" ");
-            provincia.setText(" ");
-            telefono.setText(" ");
-            CONFIRMAR.setVisible(true);
-            CANCELAR.setVisible(true);
-            jButton1.setEnabled(false);
-            jButton2.setEnabled(false);
-            jButton3.setEnabled(false);
-            jButton4.setEnabled(false);
-            jButton6.setEnabled(false);
-            
-            
-            
-            
+        nif.setText(" ");
+        nombre.setText(" ");
+        direccion.setText(" ");
+        poblacion.setText(" ");
+        provincia.setText(" ");
+        telefono.setText(" ");
+        CONFIRMAR.setVisible(true);
+        CANCELAR.setVisible(true);
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton6.setEnabled(false);
+
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void CANCELARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELARActionPerformed
-              try {
-                    r.first();
-             nif.setEditable(true);
-                 nif.setText(r.getString("NIF"));
-                 direccion.setText(r.getString("DIRECCION"));
-                 poblacion.setText(r.getString("POBLACION"));
-                 nombre.setText(r.getString("NIF"));
-                 provincia.setText(r.getString("PROVINCIA"));
-                 telefono.setText(r.getString("TELEFONO"));
-                 CANCELAR.setVisible(false);
-                 CONFIRMAR.setVisible(false);
-                 jButton1.setEnabled(true);
-                 jButton2.setEnabled(true);
-                 jButton3.setEnabled(true);
-                 jButton4.setEnabled(true);
-                 jButton6.setEnabled(true);
-              }
-                 catch (SQLException ex)  {
-                         Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
-                         }            
-                        
-   // TODO add your handling code here:
+        try {
+            r.first();
+            nif.setEditable(true);
+            nif.setText(r.getString("NIF"));
+            direccion.setText(r.getString("DIRECCION"));
+            poblacion.setText(r.getString("POBLACION"));
+            nombre.setText(r.getString("NIF"));
+            provincia.setText(r.getString("PROVINCIA"));
+            telefono.setText(r.getString("TELEFONO"));
+            CANCELAR.setVisible(false);
+            CONFIRMAR.setVisible(false);
+            jButton1.setEnabled(true);
+            jButton2.setEnabled(true);
+            jButton3.setEnabled(true);
+            jButton4.setEnabled(true);
+            jButton6.setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_CANCELARActionPerformed
 
     private void CONFIRMARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CONFIRMARActionPerformed
-        try{
+        try {
             String vnif, vnombre, vdireccion, vpoblacion, vprovincia, vtelefono;
-            vnif=nif.getText();
-            vnombre=nombre.getText();
-            vdireccion=direccion.getText();
-            vpoblacion=poblacion.getText();
-            vprovincia=provincia.getText();
-            vtelefono=telefono.getText();
-            String url="jdbc:mysql://localhost:3306/base_01";
-            String user="root";
-            String pass="";         Connection connection = DriverManager.getConnection(url, user, pass);
-            Statement s=connection.createStatement();
-            String query ="insert into cliente values('" + vnif +"','"+ vnombre  +"','"+  vdireccion  +"','"+  vpoblacion  +"','"+  vprovincia  +"','"+  vtelefono  +"')";
-            int resultado=s.executeUpdate(query);
+            vnif = nif.getText();
+            vnombre = nombre.getText();
+            vdireccion = direccion.getText();
+            vpoblacion = poblacion.getText();
+            vprovincia = provincia.getText();
+            vtelefono = telefono.getText();
+            String url = "jdbc:mysql://localhost:3306/base_01";
+            String user = "root";
+            String pass = "";
+            Connection connection = DriverManager.getConnection(url, user, pass);
+            Statement s = connection.createStatement();
+            String query = "insert into cliente values('" + vnif + "','" + vnombre + "','" + vdireccion + "','" + vpoblacion + "','" + vprovincia + "','" + vtelefono + "')";
+            int resultado = s.executeUpdate(query);
             r.refreshRow();
             CONFIRMAR.setVisible(false);
             CANCELAR.setVisible(false);
@@ -405,29 +402,37 @@ public class cliente extends javax.swing.JFrame {
             jButton3.setEnabled(true);
             jButton4.setEnabled(true);
             jButton6.setEnabled(true);
-            
-            
-            
-            
-        }   catch (SQLException ex) {
+
+        } catch (SQLException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-           
-        
-            
-            
-         
-
-
-
-
 
         // TODO add your handling code here:
     }//GEN-LAST:event_CONFIRMARActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        try {
+
+            String vnif, vnombre, vdireccion, vpoblacion, vprovincia, vtelefono;
+            vnif = nif.getText();
+            vnombre = nombre.getText();
+            vdireccion = direccion.getText();
+            vpoblacion = poblacion.getText();
+            vprovincia = provincia.getText();
+            vtelefono = telefono.getText();
+            String url = "jdbc:mysql://localhost:3306/base_01";
+            String user = "root";
+            String pass = "";
+            Connection connection = DriverManager.getConnection(url, user, pass);
+            Statement s = connection.createStatement();
+            String query = "update clientes set NOMBRE='" + vnombre + "', DIRECCION='" + vdireccion + "', POBLACION ='" + vpoblacion + "'  , PROVINCIA='" + vprovincia + "'  , TELEFONO='" + vtelefono + "'  WHERE NIF='" + vnif + "'";
+            int resultado = s.executeUpdate(query);
+            r.refreshRow();
+        } catch (SQLException ex) {
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -458,7 +463,7 @@ public class cliente extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater (new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
                     new cliente().setVisible(true);
@@ -466,9 +471,9 @@ public class cliente extends javax.swing.JFrame {
                     Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-          
-            });
-                
+
+        });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
