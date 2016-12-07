@@ -27,7 +27,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="articulo" alignment="1" max="32767" attributes="0"/>
-                  <Component id="codigo_articulo" alignment="1" pref="100" max="32767" attributes="0"/>
+                  <Component id="codigo_articulo" alignment="1" max="32767" attributes="0"/>
                   <Component id="fabricante" alignment="1" max="32767" attributes="0"/>
                   <Component id="peso" alignment="1" max="32767" attributes="0"/>
                   <Component id="categoria" alignment="1" max="32767" attributes="0"/>
@@ -35,26 +35,25 @@
                   <Component id="precio_coste" alignment="1" max="32767" attributes="0"/>
                   <Component id="existencias" alignment="1" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel1" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
+                      <Component id="bfabricante" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="199" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="bcodigoarticulo" alignment="0" pref="121" max="32767" attributes="0"/>
-                          <Component id="barticulo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="bfabricante" alignment="0" max="32767" attributes="0"/>
-                          <Component id="bpeso" alignment="0" max="32767" attributes="0"/>
+                          <Component id="bpeso" alignment="0" pref="147" max="32767" attributes="0"/>
                           <Component id="bcategoria" alignment="0" max="32767" attributes="0"/>
                           <Component id="bprecio_venta" alignment="0" max="32767" attributes="0"/>
                           <Component id="bprecio_coste" alignment="0" max="32767" attributes="0"/>
                           <Component id="bexistencias" alignment="0" max="32767" attributes="0"/>
+                          <Component id="bcodigoarticulo" max="32767" attributes="0"/>
+                          <Component id="barticulo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="nomFabricante" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jButton1" max="32767" attributes="0"/>
@@ -108,6 +107,7 @@
                           <Component id="fabricante" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="bfabricante" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomFabricante" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -200,6 +200,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="bcodigoarticulo">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="barticulo">
     </Component>
@@ -278,6 +281,24 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CANCELARActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="nomFabricante">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomFabricanteActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

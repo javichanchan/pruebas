@@ -28,7 +28,7 @@ public class cliente extends javax.swing.JFrame {
         String pass = "";
         Connection connection = DriverManager.getConnection(url, user, pass);
 
-        Statement s = connection.createStatement();
+        Statement s = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String query = "select * from clientes";
         r = s.executeQuery(query);
         r.first();
@@ -77,6 +77,7 @@ public class cliente extends javax.swing.JFrame {
 
         jTextField1.setText("MI BASE DE DATOS");
 
+        nif.setEditable(false);
         nif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nifActionPerformed(evt);

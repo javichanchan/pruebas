@@ -7,6 +7,7 @@ package quepa_quepasa;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -23,13 +24,13 @@ public class fabricantes extends javax.swing.JFrame {
      * Creates new form fabricantes
      */
     public fabricantes() throws SQLException {
-                initComponents();
+        initComponents();
         String url = "jdbc:mysql://localhost:3306/base_01";
         String user = "root";
         String pass = "";
         Connection connection = DriverManager.getConnection(url, user, pass);
         
-        Statement s = connection.createStatement();
+        Statement s = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String query = "select * from fabricantes";
         r = s.executeQuery(query);
         r.first();
@@ -75,6 +76,7 @@ public class fabricantes extends javax.swing.JFrame {
 
         pais.setText("pais");
 
+        bcodigo_fabricante.setEditable(false);
         bcodigo_fabricante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bcodigo_fabricanteActionPerformed(evt);
@@ -344,7 +346,24 @@ try{
     }//GEN-LAST:event_CONFIRMARActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        
+        try {
+
+            String vbcodigo_fabricante,vbnombre, vbpais;
+            
+            vbcodigo_fabricante = bcodigo_fabricante.getText();
+            vbnombre = bnombre.getText();
+            vbpais = bpais.getText();           
+            String url = "jdbc:mysql://localhost:3306/base_01";
+            String user = "root";
+            String pass = "";
+            Connection connection = DriverManager.getConnection(url, user, pass);
+            Statement s = connection.createStatement();
+            String query = "update fabricantes set NOMBRE='" + vbnombre + "', PAIS='" + vbpais +  "'  WHERE COD_FABRICANTE='" + vbcodigo_fabricante + "'";
+            int resultado = s.executeUpdate(query);
+            r.refreshRow();
+        } catch (SQLException ex) {
+            Logger.getLogger(fabricantes.class.getName()).log(Level.SEVERE, null, ex);
+        }        
         
         
         
