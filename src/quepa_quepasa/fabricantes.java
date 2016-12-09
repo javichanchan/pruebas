@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quepa_quepasa;  //vamos a hacer pruebas, esperando que no se vaya todo a la mierda
+package quepa_quepasa;
 
-import java.sql.Connection; 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,7 +38,7 @@ public class fabricantes extends javax.swing.JFrame {
             bnombre.setText(r.getString("NOMBRE"));
             bpais.setText(r.getString("PAIS"));
             CONFIRMAR.setVisible(false);
-            CANCELAR.setVisible(false); //mierda mierda ghghgh
+            CANCELAR.setVisible(false);
     }
 
     /**
