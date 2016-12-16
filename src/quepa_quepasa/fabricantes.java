@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quepa_quepasa; //esta aplicacion es super chunga, pero  chunga chunga
-
+package quepa_quepasa; //esta aplicacion es super chunga, pero  chunga chunga, pero al final saldrá
+//con dos cojones
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
